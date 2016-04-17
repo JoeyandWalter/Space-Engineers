@@ -1,0 +1,22 @@
+/*
+Door
+Interface name: IMyDoor
+Parent: IMyFunctionalBlock
+Fields: bool Open
+
+Actions
+OnOff -> Toggle block On/Off
+OnOff_On -> Toggle block On
+OnOff_Off -> Toggle block Off
+Open -> Open/Closed
+Open_On -> Open
+Open_Off -> Closed
+*/
+
+
+IMyDoor door = GridTerminalSystem.GetBlockWithName("Airlock") as IMyDoor; //find blocks of type IMyDoor named Airlock and assign them to variable "door"
+
+if(door.Open) //if the door is open
+{
+	door.GetActionWithName("Open_Off").Apply(door); //close the door
+}
